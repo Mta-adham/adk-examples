@@ -90,5 +90,21 @@ async def test_all():
 
 # Allow running as script
 if __name__ == "__main__":
+    import sys
+    import os
+    import pdb
+    
+    # Disable all debugger functionality
+    sys.breakpointhook = lambda: None
+    os.environ['PYTHONBREAKPOINT'] = '0'
+    
+    # Override pdb functions to do nothing
+    pdb.set_trace = lambda: None
+    pdb.post_mortem = lambda: None
+    
+    # Disable bdb module tracing
+    import bdb
+    bdb.Bdb.trace_dispatch = lambda self, frame, event, arg: None
+    
     dotenv.load_dotenv()
     asyncio.run(run_detailed_evaluation())
