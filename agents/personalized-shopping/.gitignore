@@ -1,0 +1,31 @@
+# Large data files - download manually using gdown commands in EVALUATION.md
+personalized_shopping/shared_libraries/data/*.json
+personalized_shopping/shared_libraries/data/*.gz
+personalized_shopping/shared_libraries/data/*.zip
+
+# Search engine indexes
+personalized_shopping/shared_libraries/search_engine/indexes/
+personalized_shopping/shared_libraries/search_engine/resources_*/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+.venv/
+env/
+venv/
+
+# Environment files
+.env
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
