@@ -1,0 +1,183 @@
+{
+  "overall_results": [
+    {
+      "overall_score": 0.85,
+      "semantic_analysis": {
+        "overall_score": 0.85,
+        "component_scores": {
+          "greeting": {
+            "passed": false,
+            "score": 0.5
+          },
+          "identification": {
+            "passed": true,
+            "score": 1.0
+          },
+          "main_goal": {
+            "passed": false,
+            "score": 0.6
+          },
+          "process_steps": {
+            "passed": true,
+            "score": 0.7
+          },
+          "markdown_instruction": {
+            "passed": false,
+            "score": 0.5333333333333333
+          },
+          "readiness_check": {
+            "passed": false,
+            "score": 0.26666666666666666
+          },
+          "disclaimer": {
+            "passed": true,
+            "score": 1.0
+          }
+        },
+        "semantic_similarity": 0.0,
+        "completeness_score": 0.6571428571428571,
+        "structure_score": 1.0,
+        "disclaimer_score": 1.0,
+        "detailed_feedback": [
+          "Completeness Score is below threshold: 0.66",
+          "Semantic Similarity is below threshold: 0.00"
+        ],
+        "passed": true
+      },
+      "component_breakdown": {
+        "greeting": {
+          "present": false,
+          "score": 0.5,
+          "required": true,
+          "description": "Polite greeting to user",
+          "threshold": 0.7
+        },
+        "identification": {
+          "present": true,
+          "score": 1.0,
+          "required": true,
+          "description": "Identifies as Cymbal Financial Advisor",
+          "threshold": 0.7
+        },
+        "main_goal": {
+          "present": false,
+          "score": 0.6,
+          "required": true,
+          "description": "States main goal of providing financial advice",
+          "threshold": 0.7
+        },
+        "process_steps": {
+          "present": true,
+          "score": 0.7,
+          "required": true,
+          "description": "Mentions the four-step process",
+          "threshold": 0.7
+        },
+        "markdown_instruction": {
+          "present": false,
+          "score": 0.5333333333333333,
+          "required": true,
+          "description": "Instructs user about markdown option",
+          "threshold": 0.7
+        },
+        "readiness_check": {
+          "present": false,
+          "score": 0.26666666666666666,
+          "required": true,
+          "description": "Asks if user is ready to proceed",
+          "threshold": 0.7
+        },
+        "disclaimer": {
+          "present": true,
+          "score": 1.0,
+          "required": true,
+          "description": "Full legal disclaimer",
+          "threshold": 0.7
+        }
+      },
+      "missing_components": [
+        {
+          "component": "greeting",
+          "description": "Polite greeting to user",
+          "score": 0.5,
+          "advice": "Add Polite greeting to user to improve score"
+        },
+        {
+          "component": "main_goal",
+          "description": "States main goal of providing financial advice",
+          "score": 0.6,
+          "advice": "Add States main goal of providing financial advice to improve score"
+        },
+        {
+          "component": "markdown_instruction",
+          "description": "Instructs user about markdown option",
+          "score": 0.5333333333333333,
+          "advice": "Add Instructs user about markdown option to improve score"
+        },
+        {
+          "component": "readiness_check",
+          "description": "Asks if user is ready to proceed",
+          "score": 0.26666666666666666,
+          "advice": "Add Asks if user is ready to proceed to improve score"
+        }
+      ],
+      "passed": true,
+      "detailed_scores": {
+        "completeness": 0.6571428571428571,
+        "structure": 1.0,
+        "disclaimer": 1.0,
+        "element_coverage": {
+          "greeting": 1.0,
+          "identification": 1.0,
+          "goal_statement": 1.0,
+          "four_steps": 1.0,
+          "markdown_instruction": 1.0,
+          "readiness_check": 1.0,
+          "disclaimer_present": 1.0
+        }
+      },
+      "summary": {
+        "total_components": 7,
+        "passed_components": 3,
+        "average_component_score": 0.6571428571428571,
+        "feedback": [
+          "Completeness Score is below threshold: 0.66",
+          "Semantic Similarity is below threshold: 0.00"
+        ]
+      },
+      "test_case": "Initial greeting and introduction"
+    },
+    {
+      "overall_score": 0.2333333333333333,
+      "components": {
+        "subagent_announcement": {
+          "present": false,
+          "score": 0.6666666666666666,
+          "description": "Announces data_analyst subagent"
+        },
+        "ticker_request": {
+          "present": true,
+          "score": 0.7,
+          "description": "Requests ticker symbol from user"
+        },
+        "example_tickers": {
+          "present": false,
+          "score": 0.64,
+          "description": "Provides example tickers"
+        }
+      },
+      "missing_components": [
+        "subagent_announcement",
+        "example_tickers"
+      ],
+      "passed": false,
+      "test_case": "User agrees to start"
+    }
+  ],
+  "summary": {
+    "average_score": 0.5416666666666666,
+    "grade": "F",
+    "feedback": "Failing. Major revisions required to meet basic requirements.",
+    "test_count": 2
+  }
+}

@@ -1,0 +1,203 @@
+{
+  "eval_set_id": "semantic_eval_001",
+  "name": "eval/data/financial-advisor-semantic.test.json",
+  "description": "Semantic evaluation for financial advisor - tests components and intent rather than exact text",
+  "eval_cases": [
+    {
+      "eval_id": "intro_semantic",
+      "conversation": [
+        {
+          "invocation_id": "sem-001",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Hello. What can you do for me?"
+              }
+            ],
+            "role": "user"
+          },
+          "expected_components": {
+            "greeting": {
+              "required": true,
+              "check_type": "pattern",
+              "patterns": ["hello", "hi", "greetings", "welcome"]
+            },
+            "identification": {
+              "required": true,
+              "check_type": "contains",
+              "values": ["Cymbal Financial Advisor", "Cymbal Investment Services"]
+            },
+            "main_goal": {
+              "required": true,
+              "check_type": "semantic",
+              "concept": "providing comprehensive financial advice through structured process"
+            },
+            "process_overview": {
+              "required": true,
+              "check_type": "all_present",
+              "values": ["market", "trading", "execution", "risk"]
+            },
+            "markdown_instruction": {
+              "required": true,
+              "check_type": "contains",
+              "values": ["detailed result as markdown", "show me the detailed result"]
+            },
+            "readiness_check": {
+              "required": true,
+              "check_type": "pattern",
+              "patterns": ["ready to get started", "shall we begin", "ready to start"]
+            },
+            "disclaimer": {
+              "required": true,
+              "check_type": "disclaimer_validation",
+              "min_length": 400,
+              "required_phrases": [
+                "educational and informational purposes only",
+                "do not constitute",
+                "financial advice",
+                "own risk"
+              ]
+            }
+          },
+          "scoring": {
+            "method": "weighted_components",
+            "weights": {
+              "greeting": 0.05,
+              "identification": 0.15,
+              "main_goal": 0.15,
+              "process_overview": 0.15,
+              "markdown_instruction": 0.10,
+              "readiness_check": 0.10,
+              "disclaimer": 0.30
+            },
+            "pass_threshold": 0.85
+          }
+        },
+        {
+          "invocation_id": "sem-002",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Yes please."
+              }
+            ],
+            "role": "user"
+          },
+          "expected_components": {
+            "step_announcement": {
+              "required": true,
+              "check_type": "semantic",
+              "concept": "announcing first step of market data analysis"
+            },
+            "subagent_mention": {
+              "required": true,
+              "check_type": "contains",
+              "values": ["data_analyst", "data analyst subagent"]
+            },
+            "ticker_request": {
+              "required": true,
+              "check_type": "semantic",
+              "concept": "requesting market ticker symbol from user"
+            },
+            "examples_provided": {
+              "required": true,
+              "check_type": "any_present",
+              "values": ["AAPL", "GOOGL", "MSFT", "e.g.", "for example"]
+            }
+          },
+          "scoring": {
+            "method": "weighted_components",
+            "weights": {
+              "step_announcement": 0.25,
+              "subagent_mention": 0.25,
+              "ticker_request": 0.30,
+              "examples_provided": 0.20
+            },
+            "pass_threshold": 0.80
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "financial_advisor",
+        "user_id": "user",
+        "state": {}
+      },
+      "evaluation_config": {
+        "type": "semantic",
+        "allow_variations": true,
+        "case_sensitive": false,
+        "normalize_whitespace": true
+      }
+    },
+    {
+      "eval_id": "full_flow_semantic",
+      "conversation": [
+        {
+          "invocation_id": "flow-001",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I need help with investment planning"
+              }
+            ],
+            "role": "user"
+          },
+          "expected_behavior": {
+            "should_contain_introduction": true,
+            "should_offer_help": true,
+            "should_explain_process": true
+          }
+        },
+        {
+          "invocation_id": "flow-002",
+          "user_content": {
+            "parts": [
+              {
+                "text": "Let's analyze AAPL"
+              }
+            ],
+            "role": "user"
+          },
+          "expected_behavior": {
+            "should_acknowledge_ticker": true,
+            "should_call_data_analyst": true,
+            "should_explain_next_steps": true
+          }
+        },
+        {
+          "invocation_id": "flow-003",
+          "user_content": {
+            "parts": [
+              {
+                "text": "I have a moderate risk tolerance and want to invest for 5 years"
+              }
+            ],
+            "role": "user"
+          },
+          "expected_behavior": {
+            "should_acknowledge_preferences": true,
+            "should_call_trading_analyst": true,
+            "should_use_provided_risk_level": true,
+            "should_use_provided_timeframe": true
+          }
+        }
+      ],
+      "session_input": {
+        "app_name": "financial_advisor",
+        "user_id": "user",
+        "state": {}
+      },
+      "evaluation_config": {
+        "type": "behavioral",
+        "check_state_management": true,
+        "verify_tool_usage": true
+      }
+    }
+  ],
+  "metadata": {
+    "version": "2.0",
+    "evaluation_type": "semantic",
+    "created_date": "2025-01-29",
+    "description": "Component-based semantic evaluation that checks for presence of required elements rather than exact text matching"
+  }
+}

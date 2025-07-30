@@ -17,7 +17,6 @@
 from enum import Enum
 from typing import Dict, Any, List
 
-
 # ============================================================================
 # CONFIGURATION SPACE - Defines all possible configuration options
 # ============================================================================
@@ -29,7 +28,6 @@ class RiskAttitude(Enum):
     VERY_AGGRESSIVE = "very_aggressive"
     CUSTOM = "custom"
 
-
 class InvestmentPeriod(Enum):
     SHORT_TERM = "short-term"
     MEDIUM_TERM = "medium-term"
@@ -37,7 +35,6 @@ class InvestmentPeriod(Enum):
     DAY_TRADING = "day-trading"
     SWING_TRADING = "swing-trading"
     POSITION_TRADING = "position-trading"
-
 
 class BrokerPreference(Enum):
     MARKET_ORDER = "market_order"
@@ -48,14 +45,12 @@ class BrokerPreference(Enum):
     OCO = "one_cancels_other"
     BRACKET = "bracket_order"
 
-
 class AnalysisDepth(Enum):
     BASIC = "basic"
     DETAILED = "detailed"
     COMPREHENSIVE = "comprehensive"
     MINIMAL = "minimal"
     EXPERT = "expert"
-
 
 class MarketType(Enum):
     STOCKS = "stocks"
@@ -67,14 +62,12 @@ class MarketType(Enum):
     OPTIONS = "options"
     FUTURES = "futures"
 
-
 class AnalysisMethod(Enum):
     TECHNICAL = "technical"
     FUNDAMENTAL = "fundamental"
     QUANTITATIVE = "quantitative"
     SENTIMENT = "sentiment"
     MIXED = "mixed"
-
 
 class CommunicationStyle(Enum):
     PROFESSIONAL = "professional"
@@ -83,13 +76,11 @@ class CommunicationStyle(Enum):
     CONCISE = "concise"
     DETAILED = "detailed"
 
-
 class LanguageComplexity(Enum):
     SIMPLE = "simple"
     INTERMEDIATE = "intermediate"
     ADVANCED = "advanced"
     EXPERT = "expert"
-
 
 class ResponseMode(Enum):
     STANDARD = "standard"
@@ -97,13 +88,11 @@ class ResponseMode(Enum):
     CONCISE = "concise"
     VERBOSE = "verbose"
 
-
 class IntroductionStyle(Enum):
     FULL = "full"
     BRIEF = "brief"
     MINIMAL = "minimal"
     CUSTOM = "custom"
-
 
 # Configuration space definition
 CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
@@ -123,7 +112,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": "provide comprehensive financial advice by guiding users through a structured, step-by-step process",
         "description": "Primary goal statement"
     },
-
+    
     # Process configuration
     "num_key_steps": {
         "type": "integer",
@@ -142,7 +131,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         ],
         "description": "List of process steps"
     },
-
+    
     # Introduction configuration
     "introduction_required_elements": {
         "type": "list",
@@ -159,7 +148,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": "Ready to get started?",
         "description": "Readiness check question"
     },
-
+    
     # Disclaimer configuration
     "disclaimer_title": {
         "type": "string",
@@ -172,7 +161,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": "exact",
         "description": "How to include the disclaimer"
     },
-
+    
     # Subagent configuration
     "market_data_subagent": {
         "type": "string",
@@ -194,7 +183,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": "risk_analyst",
         "description": "Subagent for risk evaluation"
     },
-
+    
     # User prompts
     "ticker_prompt": {
         "type": "string",
@@ -216,14 +205,14 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": "Do you have any broker or order preferences?",
         "description": "Prompt for broker preferences"
     },
-
+    
     # Example tickers
     "example_tickers": {
         "type": "list",
         "default": ["AAPL", "GOOGL", "MSFT"],
         "description": "Example ticker symbols"
     },
-
+    
     # Risk and investment parameters
     "risk_attitude": {
         "type": "enum",
@@ -243,7 +232,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": BrokerPreference.MARKET_ORDER.value,
         "description": "Default broker preference"
     },
-
+    
     # Analysis parameters
     "analysis_depth": {
         "type": "enum",
@@ -263,7 +252,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": AnalysisMethod.MIXED.value,
         "description": "Analysis methodology"
     },
-
+    
     # Communication parameters
     "communication_style": {
         "type": "enum",
@@ -277,7 +266,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": LanguageComplexity.INTERMEDIATE.value,
         "description": "Language complexity level"
     },
-
+    
     # Boolean flags
     "enable_disclaimers": {
         "type": "boolean",
@@ -304,7 +293,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": False,
         "description": "Show confidence scores"
     },
-
+    
     # Output formatting
     "output_format": {
         "type": "string",
@@ -319,7 +308,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": 5,
         "description": "Maximum recommendations"
     },
-
+    
     # Financial parameters
     "currency": {
         "type": "string",
@@ -341,7 +330,7 @@ CONFIG_SPACE: Dict[str, Dict[str, Any]] = {
         "default": 0.10,
         "description": "Default take profit percentage"
     },
-
+    
     # State management
     "explicit_announcement": {
         "type": "boolean",
@@ -379,7 +368,7 @@ HARDCODED_CONFIG: Dict[str, Any] = {
     "advisor_name": "Cymbal Financial Advisor",
     "company_name": "Cymbal Investment Services",
     "primary_goal": "provide comprehensive financial advice by guiding users through a structured, step-by-step process",
-
+    
     # Process configuration
     "num_key_steps": 4,
     "process_steps": [
@@ -388,45 +377,45 @@ HARDCODED_CONFIG: Dict[str, Any] = {
         "Defining clear execution plans",
         "Thoroughly evaluating overall risk"
     ],
-
+    
     # Introduction elements
     "introduction_required_elements": [
         "Introduction",
-        "Process Overview",
+        "Process Overview", 
         "User Instruction",
         "Readiness Check",
         "Disclaimer"
     ],
     "user_instruction_text": "Remember that at each step you can always ask to 'show me the detailed result as markdown'.",
     "readiness_check_text": "Ready to get started?",
-
+    
     # Disclaimer
     "disclaimer_title": "Important Disclaimer: For Educational and Informational Purposes Only.",
     "disclaimer_full_text": "The information and trading strategy outlines provided by this tool, including any analysis, commentary, or potential scenarios, are generated by an AI model and are for educational and informational purposes only. They do not constitute, and should not be interpreted as, financial advice, investment recommendations, endorsements, or offers to buy or sell any securities or other financial instruments. Google and its affiliates make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability, or availability with respect to the information provided. Any reliance you place on such information is therefore strictly at your own risk. This is not an offer to buy or sell any security. Investment decisions should not be made based solely on the information provided here. Financial markets are subject to risks, and past performance is not indicative of future results. You should conduct your own thorough research and consult with a qualified independent financial advisor before making any investment decisions. By using this tool and reviewing these strategies, you acknowledge that you understand this disclaimer and agree that Google and its affiliates are not liable for any losses or damages arising from your use of or reliance on this information.",
     "disclaimer_mode": "exact",
-
+    
     # Subagents
     "market_data_subagent": "data_analyst",
     "trading_strategy_subagent": "trading_analyst",
     "execution_strategy_subagent": "execution_analyst",
     "risk_evaluation_subagent": "risk_analyst",
-
+    
     # Step announcements
     "market_data_announcement": "Let's start with Market Data Analysis. I'll be using our data_analyst subagent for this.",
     "trading_strategy_announcement": "Next, we'll develop trading strategies using the trading_analyst subagent.",
     "execution_strategy_announcement": "Now, let's define an optimal execution strategy using the execution_analyst subagent.",
     "risk_evaluation_announcement": "Finally, I'll evaluate the overall risk profile using the risk_analyst subagent.",
-
+    
     # User prompts
     "ticker_prompt": "Please provide the market ticker symbol you wish to analyze (e.g., AAPL, GOOGL, MSFT).",
     "risk_attitude_prompt": "What is your preferred risk attitude (e.g., conservative, moderate, aggressive)?",
     "investment_period_prompt": "What is your investment period (short-term, medium-term, long-term)?",
     "broker_preferences_prompt": "Do you have any broker or order preferences?",
-
+    
     # Example configuration
     "example_tickers": ["AAPL", "GOOGL", "MSFT"],
     "example_tickers_string": "AAPL, GOOGL, MSFT",
-
+    
     # Default values
     "risk_attitude": RiskAttitude.MODERATE.value,
     "investment_period": InvestmentPeriod.MEDIUM_TERM.value,
@@ -436,7 +425,7 @@ HARDCODED_CONFIG: Dict[str, Any] = {
     "analysis_method": AnalysisMethod.MIXED.value,
     "communication_style": CommunicationStyle.PROFESSIONAL.value,
     "language_complexity": LanguageComplexity.INTERMEDIATE.value,
-
+    
     # Feature flags
     "enable_disclaimers": True,
     "require_user_confirmation": True,
@@ -447,16 +436,16 @@ HARDCODED_CONFIG: Dict[str, Any] = {
     "enable_backtesting": False,
     "show_performance_metrics": True,
     "include_tax_implications": False,
-
+    
     # Output configuration
     "output_format": "markdown",
     "max_recommendations": 5,
-
+    
     # Financial parameters
     "currency": "USD",
     "stop_loss_percentage": 0.05,
     "take_profit_percentage": 0.10,
-
+    
     # State management
     "explicit_announcement": True,
     "validate_required_keys": True,
@@ -465,20 +454,19 @@ HARDCODED_CONFIG: Dict[str, Any] = {
     "describe_next_step": True
 }
 
-
 # ============================================================================
 # PROMPT TEMPLATE - Uses configuration values
 # ============================================================================
 
 def generate_prompt(config: Dict[str, Any]) -> str:
     """Generate the financial coordinator prompt using the provided configuration."""
-
+    
     # Format process steps
     process_steps_formatted = "\n".join([f"- {step}" for step in config["process_steps"]])
-
+    
     # Format introduction example
     introduction_example = f'"Hello! I\'m the {config["advisor_name"]} from {config["company_name"]}, here to help you navigate the world of financial decision-making. My main goal is to {config["primary_goal"]}. We\'ll work together to analyze market tickers, develop effective trading strategies, define clear execution plans, and thoroughly evaluate overall risk."'
-
+    
     return f"""
 Role: Act as {config["advisor_name"]} from {config["company_name"]}.
 Your primary goal is to {config["primary_goal"]}. You will work with users to analyze market tickers, develop effective trading strategies, define clear execution plans, and thoroughly evaluate overall risk.
@@ -555,7 +543,6 @@ Step-by-step breakdown (strictly follow this pattern):
 
 At EVERY stage, confirm the correct state is maintained and transferred, ensure clear transitions between steps, and always provide explanations for both input requests and subagent outputs in context of the overall advice process.
 """
-
 
 # Generate the final prompt using the hardcoded configuration
 FINANCIAL_COORDINATOR_PROMPT = generate_prompt(HARDCODED_CONFIG)
